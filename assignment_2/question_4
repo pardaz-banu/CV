@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+
+def detectAndDescribe(image, method=None):
+    """
+    Compute key points and feature descriptors using an specific method
+    """
+    
+    assert method is not None, "You need to define a feature detection method. Values are: 'sift', 'surf'"
+    
+    # detect and extract features from the image
+    if method == 'sift':
+        descriptor = cv2.xfeatures2d.SIFT_create()
+    elif method == 'orb':
+        descriptor = cv2.ORB_create()
+        
+    # get keypoints and descriptors
+    (kps, features) = descriptor.detectAndCompute(image, None)
+    
+    return (kps, features)
+
+img = cv2.imread("cote d'ivoire.jpg",0)
+kt = detectAndDescribe(img, 'sift')
+print(kt)
