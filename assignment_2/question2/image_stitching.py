@@ -6,9 +6,10 @@ imagesPaths2 = ["./stitchingImages/studentcentereast1.jpg","./stitchingImages/st
 imagesPaths3 = ["./stitchingImages/sciencecenter1.jpg","./stitchingImages/sciencecenter2.jpg","./stitchingImages/sciencecenter3.jpg"]
 imagesPaths4 = ["./stitching_images/fourthSet/bookstore5.jpg","./stitching_images/fourthSet/bookstore6.jpg","./stitching_images/fourthSet/bookstore7.jpg"]
 imagesPaths5 = ["./stitching_images/fifthSet/tdeck1.jpg","./stitching_images/fifthSet/tdeck2.jpg","./stitching_images/fifthSet/tdeck3.jpg"]
+imagesPath6 = ["./stitching_images/fifthSet/capture_isp_1.png","./stitching_images/fifthSet/capture_isp_2.png"]
 images = []
 
-for path in imagesPaths3:
+for path in imagesPaths4:
 	image = cv2.imread(path)
 	images.append(image)
 
@@ -20,7 +21,7 @@ stitcher = cv2.Stitcher_create()
 if status == 0:
 	print("stiching is successful")
 	cv2.imshow("Stitched", stitched)
-	cv2.imwrite("stichedImage.png", stitched)
+	cv2.imwrite("stichedImage1.png", stitched)
 	cv2.waitKey(0)
 else:
 	print("[INFO] image stitching failed ({})".format(status))
